@@ -27,13 +27,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       
-      - name: Set up Docker Compose
-        uses: docker/compose-action@v1
-        with:
-          compose-file: docker-compose.yml
+      # - name: Set up Docker Compose
+      #   uses: docker/compose-action@v1
+      #   with:
+      #     compose-file: docker-compose.yml
 
       - name: Start Docker Compose
-        run: docker compose db up --build -d
+        run: docker compose -f docker-compose db up --build -d
         
       - name: Wait for PostgreSQL to start
         run: docker ps && docker exec postgres pg_isready --timeout=10
