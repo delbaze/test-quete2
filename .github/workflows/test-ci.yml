@@ -33,7 +33,7 @@ jobs:
       #     compose-file: docker-compose.yml
 
       - name: Start Docker Compose
-        run: docker compose -f docker-compose db up --build -d
+        run: docker compose -f docker-compose up --build -d db
         
       - name: Wait for PostgreSQL to start
         run: docker ps && docker exec postgres pg_isready --timeout=10
