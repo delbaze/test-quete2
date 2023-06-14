@@ -36,7 +36,7 @@ jobs:
         run: docker compose -f docker-compose.yml up --build -d db
         
       - name: Wait for PostgreSQL to start
-        run: docker ps && docker exec postgres pg_isready --timeout=10
+        run: docker ps && docker exec postgres pg_isready --timeout=30
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
