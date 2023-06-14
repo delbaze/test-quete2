@@ -35,6 +35,11 @@ jobs:
       - name: Start Docker Compose
         run: docker compose -f docker-compose.yml up --build -d db
         
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+
       - name: Wait for PostgreSQL to start
         run: docker ps && docker exec db pg_isready --timeout=30
 
