@@ -10,6 +10,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Goto client and run tests
         run: cd client && npm i && npm test
+      - name: test ref
+        run: echo github.ref
   docker:
     needs: test-front
     if: github.ref == 'refs/heads/main'
